@@ -47,15 +47,28 @@ public class Program {
 			System.out.println("Entre com o contrato #"+i);
 			System.out.print("Data (dd/MM/YYYY): ");
 			Date contractDate = sdf.parse(sc.next());
-			System.out.print("Valor da Hora");
+			System.out.print("Valor da Hora: ");
 			Double valuePerHour = sc.nextDouble();
-			System.out.print("Duraçã do contrato (Em Horas)");
+			System.out.print("Duração do contrato (Em Horas): ");
 			Integer hours = sc.nextInt();
 			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
+			worker.addContract(contract);
 		}
 		
+		System.out.println();
 		
+		System.out.println("Entre com o mês e ano para calcular o salário (MM/YYYY): ");
+		String mesAno = sc.next();
 		
+		//Convertendo os caractere da string mesAno MM e YYYY para armazenar 
+		//em int e poder compara-los com o contrato;
+		
+		int mes = Integer.parseInt(mesAno.substring(0, 2));
+		int ano = Integer.parseInt(mesAno.substring(3));
+		
+		System.out.println("Nome: "+worker.getName());
+		System.out.println("Departamento: "+worker.getDepatment().getName());
+		System.out.println("Total em: "+mesAno+": "+worker.income(ano, mes));
 		
 		sc.close();
 
