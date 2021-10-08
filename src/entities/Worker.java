@@ -11,7 +11,6 @@ public class Worker {
 	private String name;
 	private WorkerLevel level;
 	private double baseSalary;
-	
 	private Department depatment;
 	//Como um trabalhador pode possuir vários contratos (um para muitos)
 	//Os contratos precisam ser representados por uma lista do tipo Contratos
